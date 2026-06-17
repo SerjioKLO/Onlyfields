@@ -2,12 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ms-accesos" target="17" />
+      <module name="ms-configuracion" target="17" />
+      <module name="ms-inventario" target="17" />
+      <module name="ms-notificaciones" target="17" />
+      <module name="ms-pos" target="17" />
+      <module name="ms-reportes" target="17" />
+      <module name="ms-reservas" target="17" />
+      <module name="ms-seguimiento" target="17" />
+      <module name="ms-suscripciones" target="17" />
+      <module name="ms-usuarios" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

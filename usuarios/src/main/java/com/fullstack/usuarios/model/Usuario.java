@@ -1,7 +1,10 @@
 package com.fullstack.usuarios.model;
 
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +20,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Schema(description = "Entidad que representa un usuario en el sistema")
 public class Usuario {
 
     /**
@@ -24,24 +28,28 @@ public class Usuario {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Identificador único del usuario", example = "1")
     private Long id;
 
     /**
      * Nombre completo del usuario.
      */
     @Column(nullable = false)
+    @Schema(description = "Nombre completo del usuario", example = "Juan Pérez")
     private String nombre;
 
     /**
      * Correo electrónico del usuario, utilizado para el login. Debe ser único.
      */
     @Column(unique = true, nullable = false)
+    @Schema(description = "Correo electrónico del usuario (debe ser único)", example = "juan.perez@example.com")
     private String email;
 
     /**
      * Hash de la contraseña del usuario. Nunca se debe almacenar la contraseña en texto plano.
      */
     @Column(name = "password_hash", nullable = false)
+    @Schema(description = "Hash de la contraseña del usuario")
     private String passwordHash;
 
     /**
@@ -49,6 +57,7 @@ public class Usuario {
      * Por defecto, un nuevo usuario se crea como "ACTIVO".
      */
     @Builder.Default
+    @Schema(description = "Estado de la cuenta del usuario", example = "ACTIVO")
     private String estado = "ACTIVO";
 
     /**
@@ -56,6 +65,7 @@ public class Usuario {
      * Este campo no se puede actualizar una vez establecido.
      */
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
+    @Schema(description = "Fecha y hora de creación de la cuenta", example = "2024-01-01T10:00:00")
     private LocalDateTime fechaCreacion;
 
     /**
@@ -70,6 +80,7 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
     @Builder.Default
+    @ArraySchema(schema = @Schema(implementation = Rol.class))
     private Set<Rol> roles = new HashSet<>();
 
     /**

@@ -1,8 +1,10 @@
 package com.fullstack.usuarios.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Schema(description = "Entidad que representa un rol de usuario en el sistema")
 public class Rol {
 
     /**
@@ -24,6 +27,7 @@ public class Rol {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Identificador único del rol", example = "1")
     private Long id;
 
     /**
@@ -31,11 +35,13 @@ public class Rol {
      * Es la clave funcional del rol.
      */
     @Column(unique = true, nullable = false)
+    @Schema(description = "Nombre único del rol", example = "ROLE_ADMIN")
     private String nombre;
 
     /**
      * Descripción legible por humanos de lo que implica el rol.
      */
+    @Schema(description = "Descripción del rol", example = "Rol con permisos de administrador")
     private String descripcion;
 
     /**

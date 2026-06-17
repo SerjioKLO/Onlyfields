@@ -16,8 +16,8 @@ COPY configuracion ./configuracion
 COPY notificaciones ./notificaciones
 
 WORKDIR /build
-RUN sed -i 's/\r//' mvnw
 RUN chmod +x mvnw
+RUN sed -i 's/\r$//' mvnw
 RUN ./mvnw clean package -DskipTests -pl usuarios -am
 
 FROM eclipse-temurin:17-jre-alpine

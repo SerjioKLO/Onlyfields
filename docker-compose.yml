@@ -55,7 +55,7 @@ services:
   ms-suscripciones:
     build:
       context: .
-      dockerfile: suscripciones/Dockerfile.validate
+      dockerfile: Suscripciones/Dockerfile.validate
     container_name: onlyfields-ms-suscripciones
     ports:
       - "8084:8084"

@@ -12,6 +12,7 @@ import com.fullstack.usuarios.model.Usuario;
 import com.fullstack.usuarios.repository.RolRepository;
 import com.fullstack.usuarios.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 /**
  * Servicio que encapsula la lógica de negocio para la gestión de usuarios y autenticación.
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
@@ -35,17 +37,21 @@ public class UsuarioService {
      * Registra un nuevo usuario en el sistema.
      * @param dto DTO con los datos de registro.
      * @return DTO con la información del usuario creado.
-     * @throws EmailYaRegistradoException si el correo electrónico ya está en uso.
-     * @throws RolNoEncontradoException si el rol especificado no existe.
      */
     @Transactional
     public UsuarioRespuestaDTO registrarUsuario(UsuarioRegistroDTO dto) {
+        log.info("[ms-usuarios] Iniciando registro de nuevo usuario con email: {}", dto.getCorreoElectronico());
+
         if (usuarioRepository.existsByEmail(dto.getCorreoElectronico())) {
+            log.warn("[ms-usuarios] Fallo de registro: El correo '{}' ya se encuentra en uso.", dto.getCorreoElectronico());
             throw new EmailYaRegistradoException("El correo electrónico '" + dto.getCorreoElectronico() + "' ya está registrado.");
         }
 
         Rol rol = rolRepository.findById(dto.getRolId())
-                .orElseThrow(() -> new RolNoEncontradoException("El rol con ID '" + dto.getRolId() + "' no es válido."));
+                .orElseThrow(() -> {
+                    log.warn("[ms-usuarios] Fallo de registro: Rol con ID '{}' no encontrado.", dto.getRolId());
+                    return new RolNoEncontradoException("El rol con ID '" + dto.getRolId() + "' no es válido.");
+                });
 
         Usuario usuario = Usuario.builder()
                 .nombre(dto.getNombre())
@@ -57,6 +63,8 @@ public class UsuarioService {
 
         usuario.agregarRol(rol);
         Usuario nuevoUsuario = usuarioRepository.save(usuario);
+
+        log.info("[ms-usuarios] Usuario registrado exitosamente con ID: {}", nuevoUsuario.getId());
         return mapearARespuestaDTO(nuevoUsuario);
     }
 
@@ -64,20 +72,28 @@ public class UsuarioService {
      * Valida las credenciales de un usuario para el login.
      * @param dto DTO con email y contraseña.
      * @return DTO con la información del usuario si el login es exitoso.
-     * @throws UsuarioNoEncontradoException si no se encuentra un usuario con ese email.
-     * @throws CredencialesInvalidasException si la contraseña es incorrecta o la cuenta está inactiva.
      */
     @Transactional(readOnly = true)
     public UsuarioRespuestaDTO login(AuthLoginDTO dto) {
+        log.info("[ms-usuarios] Intento de login para el correo: {}", dto.getCorreoElectronico());
+
         Usuario usuario = usuarioRepository.findByEmail(dto.getCorreoElectronico())
-                .orElseThrow(() -> new UsuarioNoEncontradoException("No se encontró un usuario con el correo: " + dto.getCorreoElectronico()));
+                .orElseThrow(() -> {
+                    log.warn("[ms-usuarios] Login fallido: No existe cuenta con el correo '{}'.", dto.getCorreoElectronico());
+                    return new UsuarioNoEncontradoException("No se encontró un usuario con el correo: " + dto.getCorreoElectronico());
+                });
 
         if (!passwordEncoder.matches(dto.getPassword(), usuario.getPasswordHash())) {
+            log.warn("[ms-usuarios] Login fallido para '{}': Contraseña incorrecta.", dto.getCorreoElectronico());
             throw new CredencialesInvalidasException("La contraseña es incorrecta.");
         }
+
         if (!"ACTIVO".equals(usuario.getEstado())) {
+            log.warn("[ms-usuarios] Login rechazado para '{}': Cuenta inactiva.", dto.getCorreoElectronico());
             throw new CredencialesInvalidasException("La cuenta del usuario no está activa.");
         }
+
+        log.info("[ms-usuarios] Login exitoso para el usuario ID: {}", usuario.getId());
         return mapearARespuestaDTO(usuario);
     }
 
@@ -87,6 +103,7 @@ public class UsuarioService {
      */
     @Transactional(readOnly = true)
     public List<UsuarioRespuestaDTO> listarTodos() {
+        log.info("[ms-usuarios] Solicitud para listar todos los usuarios registrados.");
         return usuarioRepository.findAll().stream()
                 .map(this::mapearARespuestaDTO)
                 .collect(Collectors.toList());
@@ -96,32 +113,42 @@ public class UsuarioService {
      * Obtiene un usuario por su ID.
      * @param id El ID del usuario.
      * @return DTO con la información del usuario.
-     * @throws UsuarioNoEncontradoException si el usuario no existe.
      */
     @Transactional(readOnly = true)
     public UsuarioRespuestaDTO obtenerPorId(Long id) {
+        log.info("[ms-usuarios] Buscando usuario con ID: {}", id);
+
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new UsuarioNoEncontradoException("Usuario no encontrado con el ID: " + id));
+                .orElseThrow(() -> {
+                    log.warn("[ms-usuarios] Búsqueda fallida: Usuario con ID '{}' no encontrado.", id);
+                    return new UsuarioNoEncontradoException("Usuario no encontrado con el ID: " + id);
+                });
+
         return mapearARespuestaDTO(usuario);
     }
 
     /**
      * Realiza un borrado lógico de un usuario, cambiando su estado a "INACTIVO".
      * @param id El ID del usuario a desactivar.
-     * @throws UsuarioNoEncontradoException si el usuario no existe.
      */
     @Transactional
     public void eliminarUsuario(Long id) {
+        log.info("[ms-usuarios] Solicitud de baja lógica para el usuario ID: {}", id);
+
         Usuario usuario = usuarioRepository.findById(id)
-                .orElseThrow(() -> new UsuarioNoEncontradoException("Usuario no encontrado con el ID: " + id));
+                .orElseThrow(() -> {
+                    log.warn("[ms-usuarios] Baja fallida: Usuario con ID '{}' no existe.", id);
+                    return new UsuarioNoEncontradoException("Usuario no encontrado con el ID: " + id);
+                });
+
         usuario.setEstado("INACTIVO");
         usuarioRepository.save(usuario);
+
+        log.info("[ms-usuarios] Usuario ID '{}' dado de baja (INACTIVO) exitosamente.", id);
     }
 
     /**
      * Método de utilidad para convertir una entidad {@link Usuario} a un {@link UsuarioRespuestaDTO}.
-     * @param usuario La entidad a convertir.
-     * @return El DTO con los datos públicos del usuario.
      */
     private UsuarioRespuestaDTO mapearARespuestaDTO(Usuario usuario) {
         String rolNombre = usuario.getRoles().stream()

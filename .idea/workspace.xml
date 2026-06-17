@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="878a036f-607e-420f-9cd1-6eae26fb11c0" name="Changes" comment="pefnskjgvg">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accesos/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/accesos/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuracion/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventario/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/inventario/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificaciones/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notificaciones/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pos/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/pos/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reportes/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/reportes/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservas/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/reservas/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seguimiento/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/seguimiento/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/suscripciones/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/suscripciones/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="ef94f1ab-4e08-442d-a082-a893bc3572ee" name="Changes" comment="Tests sergio" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,22 +34,22 @@
     &quot;assignee&quot;: &quot;SerjioKLO&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Sebadlpc/Onlyfields.git",
-    "accountId": "ea065c76-2254-44d9-8525-9b116abf6bf0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Sebadlpc/Onlyfields.git&quot;,
+    &quot;accountId&quot;: &quot;ea065c76-2254-44d9-8525-9b116abf6bf0&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "Sebadlpc",
-    "repository": "Onlyfields"
+    &quot;owner&quot;: &quot;Sebadlpc&quot;,
+    &quot;repository&quot;: &quot;Onlyfields&quot;
   }
-}]]></component>
+}</component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;048b676ab6c5bfa505149f61e1570de8adf2a676&quot; value=&quot;###&amp;#10;GET http://localhost:8085/api/v1/productos&quot; /&gt;&#10;  &lt;entry key=&quot;18d49f0791efe8f7bee05997373d577e86aa82f9&quot; value=&quot;GET http://localhost:8084/api/v1/suscripciones&quot; /&gt;&#10;  &lt;entry key=&quot;42b20c24499a3c4bde28124835f07975e8873a3f&quot; value=&quot;###&amp;#10;GET http://localhost:8081/api/v1/usuarios&quot; /&gt;&#10;  &lt;entry key=&quot;1004651779ba92f6c9fa936a448139e831595d7c&quot; value=&quot;###&amp;#10;GET http://localhost:8080/api/v1/categorias&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
   </component>
@@ -82,65 +69,64 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="3DoLfNEWFwu2oir13Wg8KFsRPzr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Docker.Docker-compose.yml.db-mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Docker-compose.yml.ms-inventario: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Docker-compose.yml.ms-suscripciones: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Docker-compose.yml.ms-usuarios: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;New/updated database configurations found&quot;,
-    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.google.cloudcode.ide_session_index&quot;: &quot;20260528_0003&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/seses/IdeaProjects/Onlyfields/pos/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/seses/IdeaProjects/Onlyfields/suscripciones/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Docker.Docker-compose.yml.db-mysql: Compose Deployment.executor": "Run",
+    "Docker.Docker-compose.yml.ms-inventario: Compose Deployment.executor": "Run",
+    "Docker.Docker-compose.yml.ms-suscripciones: Compose Deployment.executor": "Run",
+    "Docker.Docker-compose.yml.ms-usuarios: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "New/updated database configurations found",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.google.cloudcode.ide_session_index": "20260528_0003",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/seses/IdeaProjects/Onlyfields",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/seses/IdeaProjects/Onlyfields/suscripciones/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle",
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JAVA&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\seses\IdeaProjects\Onlyfields" />
       <recent name="C:\Users\seses\IdeaProjects\Onlyfields\pos\src\main\resources" />
       <recent name="C:\Users\seses\IdeaProjects\Onlyfields\seguimiento\src\main\resources" />
-      <recent name="C:\Users\seses\IdeaProjects\Onlyfields" />
       <recent name="C:\Users\seses\IdeaProjects\Onlyfields\accesos" />
       <recent name="C:\Users\seses\IdeaProjects\Onlyfields\configuracion" />
     </key>
